@@ -5,7 +5,7 @@ import org.bukkit.util.Vector;
 
 import static org.apache.commons.lang3.RandomUtils.nextDouble;
 
-public abstract class RandomUnitVectorGenerator {
+public abstract class SkibidiMath {
     // ok this is really stupid but bear with me
     public static Vector randomUnitVector() {
         Vector ret = null;
@@ -21,5 +21,9 @@ public abstract class RandomUnitVectorGenerator {
                 ret.multiply(1/ret.length());
         }
         return ret;
+    }
+
+    public static float clamp(float value, float min, float max) {
+        return Math.max(min, Math.min(max, value));
     }
 }

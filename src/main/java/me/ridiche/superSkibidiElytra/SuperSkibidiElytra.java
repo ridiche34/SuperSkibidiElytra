@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.logging.Logger;
 
 import static org.apache.commons.lang3.RandomUtils.nextDouble;
+import static org.apache.commons.lang3.RandomUtils.nextFloat;
 
 public final class SuperSkibidiElytra extends JavaPlugin {
 
@@ -16,6 +17,10 @@ public final class SuperSkibidiElytra extends JavaPlugin {
     public static double randomDouble() {
         return nextDouble() / Double.MAX_VALUE;
     }
+    public static float randomFloat() {
+        return nextFloat() / Float.MAX_VALUE;
+    }
+
 
     @Override
     public void onEnable() {

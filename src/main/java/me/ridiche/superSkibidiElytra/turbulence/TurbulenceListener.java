@@ -1,6 +1,9 @@
 package me.ridiche.superSkibidiElytra.turbulence;
 
 import com.destroystokyo.paper.event.player.PlayerElytraBoostEvent;
+import io.papermc.paper.math.Rotation;
+import me.ridiche.superSkibidiElytra.SuperSkibidiElytra;
+import org.apache.commons.lang3.RandomUtils;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,8 +12,6 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
-
-import static org.apache.commons.lang3.RandomUtils.nextDouble;
 
 public class TurbulenceListener implements Listener {
     private static HashMap<Player, Firework> boosts = new HashMap<Player, Firework>();
@@ -33,11 +34,11 @@ public class TurbulenceListener implements Listener {
         return isBoosting(event.getPlayer());
     }
 
-    private static Vector vibration(PlayerMoveEvent event) {
-        double intensity = 0.05f;
+    private static float vibration(PlayerMoveEvent event) {
+        float intensity = 3f;
         // multiply intensity by distance traveled
-        intensity *= event.getTo().clone().subtract(event.getFrom()).length();
-        return RandomUnitVectorGenerator.randomUnitVector().multiply(intensity);
+        intensity *= (float) event.getTo().clone().subtract(event.getFrom()).length();
+        return (SuperSkibidiElytra.randomFloat()*2-1)*intensity;
     }
 
     @EventHandler
@@ -46,13 +47,9 @@ public class TurbulenceListener implements Listener {
         if (plr.isGliding())
         {
             if (shouldVibrate(event)) {
-                Vector prevVelocity = plr.getVelocity();
-                plr.teleport(
-                        event.getTo().clone().setDirection(
-                                event.getTo().getDirection().add(
-                                        vibration(event)
-                                )));
-                plr.setVelocity(prevVelocity);
+                Rotation initalRotation = event.getTo().clone().getRotation();
+                plr.setRotation(initalRotation.yaw()+vibration(event),
+                        SkibidiMath.clamp(initalRotation.pitch(), -90, 90)+vibration(event));
             }
         }
     }
