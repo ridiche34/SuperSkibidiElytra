@@ -1,7 +1,7 @@
 name: SuperSkibidiElytra
 version: '1.0'
 main: me.ridiche.superSkibidiElytra.SuperSkibidiElytra
-api-version: '1.21'
+api-version: '1.21.11'
 prefix: sselytra
 authors: [ ridice, tux ]
 description: Balances Elytra in a very silly and unique way
