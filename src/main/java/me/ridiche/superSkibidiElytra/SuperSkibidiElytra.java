@@ -1,5 +1,6 @@
 package me.ridiche.superSkibidiElytra;
 
+import me.ridiche.superSkibidiElytra.temperature.TemperatureListener;
 import me.ridiche.superSkibidiElytra.turbulence.TurbulenceListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +22,7 @@ public final class SuperSkibidiElytra extends JavaPlugin {
         LOGGER = this.getLogger();
         PluginManager pluginManager = getServer().getPluginManager();
         pluginManager.registerEvents(new TurbulenceListener(), this);
+        pluginManager.registerEvents(new TemperatureListener(), this);
     }
 
     @Override
