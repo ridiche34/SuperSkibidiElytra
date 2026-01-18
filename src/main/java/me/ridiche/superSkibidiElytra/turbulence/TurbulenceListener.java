@@ -1,9 +1,6 @@
 package me.ridiche.superSkibidiElytra.turbulence;
 
 import com.destroystokyo.paper.event.player.PlayerElytraBoostEvent;
-import io.papermc.paper.event.entity.EntityMoveEvent;
-import me.ridiche.superSkibidiElytra.SuperSkibidiElytra;
-import org.apache.commons.lang3.RandomUtils;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,12 +9,10 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
-import java.util.Map;
 
-import static java.lang.Math.pow;
 import static org.apache.commons.lang3.RandomUtils.nextDouble;
 
-public class PlayerMoveEventListener implements Listener {
+public class TurbulenceListener implements Listener {
     private static HashMap<Player, Firework> boosts = new HashMap<Player, Firework>();
 
     private static boolean isBoosting(Player plr) {

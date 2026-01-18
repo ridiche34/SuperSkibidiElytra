@@ -1,6 +1,6 @@
 package me.ridiche.superSkibidiElytra;
 
-import me.ridiche.superSkibidiElytra.turbulence.PlayerMoveEventListener;
+import me.ridiche.superSkibidiElytra.turbulence.TurbulenceListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +20,7 @@ public final class SuperSkibidiElytra extends JavaPlugin {
     public void onEnable() {
         LOGGER = this.getLogger();
         PluginManager pluginManager = getServer().getPluginManager();
-        pluginManager.registerEvents(new PlayerMoveEventListener(), this);
+        pluginManager.registerEvents(new TurbulenceListener(), this);
     }
 
     @Override
