@@ -3,8 +3,6 @@ package me.ridiche.superSkibidiElytra.turbulence;
 import me.ridiche.superSkibidiElytra.SuperSkibidiElytra;
 import org.bukkit.util.Vector;
 
-import static org.apache.commons.lang3.RandomUtils.nextDouble;
-
 public abstract class SkibidiMath {
     // ok this is really stupid but bear with me
     public static Vector randomUnitVector() {

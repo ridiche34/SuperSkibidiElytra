@@ -1,7 +1,6 @@
 package me.ridiche.superSkibidiElytra.temperature;
 
 import com.destroystokyo.paper.event.server.ServerTickEndEvent;
-import me.ridiche.superSkibidiElytra.SuperSkibidiElytra;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
@@ -14,8 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.util.Vector;
 
 public class TemperatureListener implements Listener {
     private static boolean isHot(World world) {
@@ -57,7 +54,7 @@ public class TemperatureListener implements Listener {
             String whoDied = event.getPlayer().getName();
             event.deathMessage(
                     Component.text(
-                            whoDied+ " flew too close to the sun, except that the sun is lava, or wait, actually... The particles are from the enviornment, they're in the other biomes too... Wait, no, "+whoDied+" flew too close to the... flying, uh... hot micro-suns..? You know what, maybe this isn't a good metaphor after all."
+                            whoDied+ " flew too close to the sun, except that the sun is lava, or wait, actually... The particles are from the environment, they're in the other biomes too... Wait, no, "+whoDied+" flew too close to the... flying, uh... hot micro-suns..? You know what, maybe this isn't a good metaphor after all."
                     ));
         }
     }

@@ -3,18 +3,16 @@ package me.ridiche.superSkibidiElytra.turbulence;
 import com.destroystokyo.paper.event.player.PlayerElytraBoostEvent;
 import io.papermc.paper.math.Rotation;
 import me.ridiche.superSkibidiElytra.SuperSkibidiElytra;
-import org.apache.commons.lang3.RandomUtils;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.util.Vector;
 
 import java.util.HashMap;
 
 public class TurbulenceListener implements Listener {
-    private static HashMap<Player, Firework> boosts = new HashMap<Player, Firework>();
+    private static final HashMap<Player, Firework> boosts = new HashMap<>();
 
     private static boolean isBoosting(Player plr) {
         Firework firework = boosts.get(plr);
