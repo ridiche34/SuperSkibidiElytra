@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperSkibidiElytra.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperSkibidiElytra.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperSkibidiElytra.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperSkibidiElytra.main.iml" />
     </modules>
   </component>
