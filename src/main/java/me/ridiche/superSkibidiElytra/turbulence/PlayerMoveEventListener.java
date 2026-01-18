@@ -35,18 +35,13 @@ public class PlayerMoveEventListener implements Listener {
     }
 
     private static boolean shouldVibrate(PlayerMoveEvent event) {
-        double chanceEveryBlock = 1d/20;
-        if (isBoosting(event.getPlayer()))
-            chanceEveryBlock = 1d/7;
-        double distanceTravelled = event.getTo().clone().subtract(event.getFrom()).length();
-
-        return SuperSkibidiElytra.randomDouble() < 1-(pow(1-chanceEveryBlock, distanceTravelled));
+        return isBoosting(event.getPlayer());
     }
 
     private static Vector vibration(PlayerMoveEvent event) {
-        double intensity = event.getPlayer().getVelocity().lengthSquared()/30;
-        if (isBoosting(event.getPlayer()))
-            intensity *= 2;
+        double intensity = 0.05f;
+        // multiply intensity by distance traveled
+        intensity *= event.getTo().clone().subtract(event.getFrom()).length();
         return RandomUnitVectorGenerator.randomUnitVector().multiply(intensity);
     }
 
@@ -65,18 +60,6 @@ public class PlayerMoveEventListener implements Listener {
                 plr.setVelocity(prevVelocity);
             }
         }
-    }
-
-    private static boolean shouldVibrateDueToFirework(Vector movement) {
-        double chanceEveryBlock = 1d/10;
-        double distanceTravelled = movement.length();
-
-        return true;
-        //return SuperSkibidiElytra.randomDouble() < 1-(pow(1-chanceEveryBlock, distanceTravelled));
-    }
-
-    private static Vector fireworkVibration() {
-        return RandomUnitVectorGenerator.randomUnitVector().multiply(0.1f);
     }
 
     @EventHandler
