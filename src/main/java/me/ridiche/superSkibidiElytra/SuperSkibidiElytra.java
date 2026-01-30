@@ -1,10 +1,9 @@
 package me.ridiche.superSkibidiElytra;
 
+import me.ridiche.superSkibidiElytra.equip.EquipMenu;
 import me.ridiche.superSkibidiElytra.equip.PlayerMenuManager;
-import me.ridiche.superSkibidiElytra.equip.TestMenu;
 import me.ridiche.superSkibidiElytra.temperature.TemperatureListener;
 import me.ridiche.superSkibidiElytra.turbulence.TurbulenceListener;
-import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -50,7 +49,7 @@ public final class SuperSkibidiElytra extends JavaPlugin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player plr = event.getPlayer();
         PlayerMenuManager menuManager = new PlayerMenuManager(plr);
-        menuManager.openMenu(new TestMenu());
+        menuManager.openMenu(new EquipMenu(menuManager));
         menuManagers.put(plr, menuManager);
     }
 
